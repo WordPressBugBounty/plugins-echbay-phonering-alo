@@ -8,8 +8,8 @@ Text Domain: echbayepa
 Tags: phonering, call, sales, customers, contact
 Requires at least: 4.8
 Tested up to: 6.6
-Stable tag: 1.3.0
-Version: 1.3.0
+Stable tag: 1.3.1
+Version: 1.3.1
 Contributors: itvn9online
 Donate link: https://paypal.me/itvn9online/5
 
@@ -29,6 +29,9 @@ Add Phonering Alo button to your website. A very simple yet very effective plugi
 2. Phonering Alo setting in admin.
 
 == Changelog ==
+
+= Version 1.3.1 =
+* url sms phone dynamic to email sendto
 
 = Version 1.3.0 =
 * fixed url tel phone

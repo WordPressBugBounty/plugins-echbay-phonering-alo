@@ -4,12 +4,18 @@ defined('ABSPATH') or die('Invalid request.'); ?>
 <!-- Preview template -->
 <div id="EPA_preview_template">
 <?php
-foreach ([
+foreach (
+[
 'guest.html',
 'guest_call_number.html',
 'guest_call_sms_mes.html',
-] as $v) {
+] as $v
+) {
 $a = $this->get_tmp($v);
+if (strpos($this->my_settings['email_address'], '@') !== false) {
+$a = str_replace('{{phone_or_email}}', 'mailto:{{email_address}}', $a);
+} else {
+$a = str_replace('{{phone_or_email}}', 'sms:{{phone_number}}', $a); }
 $a = $this->replace_tmp($a);
 echo $a;
 } ?>

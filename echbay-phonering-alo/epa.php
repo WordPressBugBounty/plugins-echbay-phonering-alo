@@ -6,13 +6,13 @@
 * Plugin Facebook page: https://www.facebook.com/webgiare.org
 * Author: Dao Quoc Dai
 * Author URI: https://www.facebook.com/ech.bay/
-* Version: 1.3.0
+* Version: 1.3.1
 * Text Domain: webgiareorg
 * Domain Path: /languages/
 * License: GPLv2 or later
 */
 defined('ABSPATH') or die('Invalid request.');
-define('EPA_DF_VERSION', '1.3.0');
+define('EPA_DF_VERSION', '1.3.1');
 define('EPA_THIS_PLUGIN_NAME', 'EchBay Phonering Alo');
 if (!class_exists('EPA_Actions_Module')) {
 class EPA_Actions_Module
@@ -24,6 +24,7 @@ public $defaultOptions = [
 'header_bg' => '#0084FF',
 'html_template' => '',
 'mobile_grid' => 'yes',
+'email_address' => '',
 'messenger_url' => '',
 'messenger_full_url' => '',
 'zalo_url' => '',
@@ -60,6 +61,10 @@ public $defaultNameOptions = [
 'mobile_grid' => [
 'type' => 'checkbox',
 'description' => 'Display with grid style in mobile.',
+],
+'email_address' => [
+'type' => 'email',
+'description' => 'If email is empty, icon sms phone number will been active.',
 ],
 'messenger_url' => [
 'description' => 'The Nickname or ID account Facebook, Messenger. How to get your Facebook nickname? <a href="https://youtu.be/gVt1ob_zeQ8" target="_blank" rel="nofollow">Click here!</a>!',
@@ -211,6 +216,10 @@ $v = 'guest_call_sms_mes.html';
 } else {
 $v = 'guest.html'; }
 $a = $this->get_tmp($v);
+if (strpos($this->my_settings['email_address'], '@') !== false) {
+$a = str_replace('{{phone_or_email}}', 'mailto:{{email_address}}', $a);
+} else {
+$a = str_replace('{{phone_or_email}}', 'sms:{{phone_number}}', $a); }
 $a = $this->replace_tmp($a);
 echo $a; }
 }
