@@ -7,7 +7,7 @@ Author URI: https://www.facebook.com/ech.bay
 Text Domain: echbayepa
 Tags: phonering, call, sales, customers, contact
 Requires at least: 4.8
-Tested up to: 6.6
+Tested up to: 6.7
 Stable tag: 1.3.1
 Version: 1.3.1
 Contributors: itvn9online
